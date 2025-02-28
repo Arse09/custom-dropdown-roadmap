@@ -7,4 +7,16 @@ dropdowns.forEach((dropdown) => {
   dropdownButton.onclick = () => {
     dropdown.classList.toggle('opened')
   }
+  
+  let dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item')
+  dropdownItems.forEach((dropdownItem) => {
+    dropdownItem.onclick = () => {
+      dropdownItems.forEach((dropdownItem) => {
+        dropdownItem.classList.remove('selected')
+      })
+      dropdownButton.innerHTML = dropdownItem.innerHTML
+      dropdown.classList.remove('opened')
+      dropdownItem.classList.add('selected')
+    }
+  })
 })

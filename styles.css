@@ -82,6 +82,7 @@ body {
     border: #000 solid 1px;
     border-radius: 20px;
     z-index: 0;
+    list-style: none;
 }
 
 .dropdown.opened > .dropdown-menu {
@@ -104,4 +105,11 @@ body {
 
 .dropdown > .dropdown-menu li:last-child .dropdown-item {
     border-bottom: none;
+}
+
+.dropdown > .dropdown-menu > li > .dropdown-item.selected::after {
+    content: url("icon_selected.svg");
+    color: #000;
+    position: absolute;
+    right: 20px;
 }
