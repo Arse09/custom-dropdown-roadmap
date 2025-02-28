@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.card {
+    height: 300px;
+    width: 300px;
+    border: #1d1d1d 1px solid;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 8px 8px 20px #00000033, 4px 4px 10px #0000001a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    width: 100%;
+    position: relative;
+}
+
+.dropdown .dropdown-button {
+    position: relative;
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    outline: none;
+    background: #ffffff;
+    border: #000 1px solid;
+    border-radius: 8px;
+    transition: all 500ms ease, background-color 200ms ease;
+    text-align: left;
+    z-index: 10;
+}
+
+.dropdown .dropdown-button:hover,
+.dropdown .dropdown-menu .dropdown-item:hover {
+    background: #f1f1f1;
+}
+
+.dropdown .dropdown-button::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: all 500ms ease;
+    right: 15px;
+    top: 15px;
+}
+
+.dropdown.opened .dropdown-button::after {
+    top: 17px;
+    transform: rotate(-135deg);
+}
+
+.dropdown > .dropdown-menu {
+    max-height: 0;
+    overflow-y: hidden;
+    transition: all 500ms ease, top 700ms ease;
+    position: absolute;
+    width: 100%;
+    top: calc(100% - 20px);
+    border: #000 solid 1px;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+.dropdown.opened > .dropdown-menu {
+    max-height: 500px;
+    top: calc(100% + 10px);
+}
+
+.dropdown > .dropdown-menu > li > .dropdown-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    outline: none;
+    background: #ffffff;
+    border: none;
+    border-bottom: #000 1px solid;
+    text-align: left;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 200ms ease;
+}
+
+.dropdown > .dropdown-menu li:last-child .dropdown-item {
+    border-bottom: none;
+}
